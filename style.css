@@ -1,0 +1,46 @@
+/* Estilo geral da página */
+body {
+    background-color: #1a0000; /* Fundo vermelho bem escuro tom 'rock' */
+    color: #ffffff; /* Letras brancas para dar contraste */
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Título Principal */
+h1 {
+    background-color: rgb(42, 116, 165);
+    color: #ffffff;
+    font-size: 48px;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+/* Títulos das seções */
+h2 {
+    color: #ff4d4d;
+    font-size: 32px;
+    margin-top: 40px;
+    border-bottom: 2px solid #ff4d4d;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+/* Ajuste e organização dos vídeos */
+iframe {
+    width: 100%;
+    max-width: 560px;
+    height: 315px;
+    margin: 10px;
+    border-radius: 8px;
+}
+
+/* Agrupamento dos vídeos para ficarem organizados */
+.video-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
