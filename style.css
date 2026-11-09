@@ -6,6 +6,8 @@
   --cor-texto: #333333;          /* Cinza escuro para boa leitura */
   --cor-borda: #e0e0e0;          /* Cinza neutro para bordas */
   --cor-branco: #ffffff;
+  --cor-erro: #d32f2f;
+  --cor-sucesso: #2e7d32;
 }
 
 * {
@@ -139,4 +141,151 @@ tbody tr:hover {
 .status-indisponivel {
   color: #757575;
   font-style: italic;
+}
+
+/* --- Novos Estilos Acrescentados ao Final --- */
+
+/* Card de Login */
+.card-login {
+  background-color: var(--cor-branco);
+  border: 1px solid var(--cor-borda);
+  border-radius: 10px;
+  padding: 30px;
+  max-width: 420px;
+  margin: 40px auto;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.card-login h2 {
+  color: var(--cor-principal);
+  margin-bottom: 10px;
+}
+
+.login-info {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.login-form label {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.login-form input {
+  width: 100%;
+  max-width: 200px;
+  padding: 10px;
+  font-size: 1.1rem;
+  text-align: center;
+  border: 1px solid var(--cor-borda);
+  border-radius: 6px;
+  outline: none;
+}
+
+.login-form input:focus {
+  border-color: var(--cor-principal);
+}
+
+/* Botões */
+button {
+  background-color: var(--cor-principal);
+  color: var(--cor-branco);
+  border: none;
+  padding: 10px 20px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #1b5e20;
+}
+
+button.btn-secundario {
+  background-color: #757575;
+}
+
+button.btn-secundario:hover {
+  background-color: #616161;
+}
+
+.barra-acoes {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+/* Mensagens de Status */
+.mensagem-status {
+  margin-top: 15px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.mensagem-status.erro {
+  color: var(--cor-erro);
+}
+
+.mensagem-status.sucesso {
+  color: var(--cor-sucesso);
+}
+
+.mensagem-status.info {
+  color: #0277bd;
+}
+
+/* Editor de Dados */
+.secao-editor {
+  background-color: var(--cor-branco);
+  padding: 25px;
+  border-radius: 10px;
+  border: 1px solid var(--cor-borda);
+  margin-bottom: 30px;
+}
+
+.secao-editor h2 {
+  color: var(--cor-principal);
+  margin-bottom: 5px;
+}
+
+.editor-instrucoes {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.secao-editor input[type="text"] {
+  width: 70px;
+  padding: 6px;
+  border: 1px solid var(--cor-borda);
+  border-radius: 4px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.secao-editor input[type="text"]:focus {
+  border-color: var(--cor-principal);
+  outline: none;
+}
+
+.secao-editor input.campo-invalido {
+  border-color: var(--cor-erro);
+  background-color: #ffebee;
+}
+
+.editor-botoes {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
 }

@@ -12,58 +12,111 @@
   <header class="header">
     <div class="container">
       <h1>Boletim Digital</h1>
-      <p class="subtitulo">Estudante Exemplo — 8º Ano</p>
+      <p class="subtitulo">Estudante Exemplo — 8º Ano (Turma 8B, Nº 18)</p>
     </div>
   </header>
 
   <main class="container">
-    <!-- Seção de Cards de Resumo -->
-    <section class="cards-grid">
-      <div class="card">
-        <h3>Média Geral</h3>
-        <p class="card-valor" id="card-media-geral">—</p>
+
+    <!-- Seção de Acesso por PIN -->
+    <section id="secao-login" class="card-login">
+      <h2>Acesso ao Boletim</h2>
+      <p class="login-info">Turma: <strong>8B</strong> | Número de chamada: <strong>18</strong></p>
+      <div class="login-form">
+        <label for="campo-pin">Digite seu PIN:</label>
+        <input type="password" id="campo-pin" placeholder="****" maxlength="10">
+        <button id="btn-entrar" type="button">Entrar</button>
       </div>
-      <div class="card">
-        <h3>Total de Faltas</h3>
-        <p class="card-valor" id="card-total-faltas">—</p>
-      </div>
-      <div class="card">
-        <h3>Disciplinas - Bom Desempenho</h3>
-        <p class="card-valor" id="card-bom-desempenho">—</p>
-      </div>
-      <div class="card">
-        <h3>Disciplinas - Atenção</h3>
-        <p class="card-valor" id="card-atencao">—</p>
-      </div>
-      <div class="card">
-        <h3>Frequência Demonstrativa</h3>
-        <p class="card-valor" id="card-frequencia">92%</p>
-        <span class="card-status">Frequência adequada</span>
-      </div>
+      <p id="mensagem-login" class="mensagem-status"></p>
     </section>
 
-    <!-- Tabela de Notas e Faltas -->
-    <section class="tabela-section">
-      <h2>Notas e Frequência por Disciplina</h2>
-      <div class="tabela-container">
-        <table>
-          <thead>
-            <tr>
-              <th>Disciplina</th>
-              <th>1º Tri</th>
-              <th>2º Tri</th>
-              <th>3º Tri</th>
-              <th>Média</th>
-              <th>Faltas</th>
-              <th>Situação</th>
-            </tr>
-          </thead>
-          <tbody id="tabela-corpo">
-            <!-- As linhas da tabela serão inseridas pelo JavaScript -->
-          </tbody>
-        </table>
+    <!-- Conteúdo do Boletim (Escondido até o login) -->
+    <div id="conteudo-boletim" style="display: none;">
+
+      <!-- Barra de Ações do Estudante -->
+      <div class="barra-acoes">
+        <button id="btn-alterar-dados" type="button">Alterar dados</button>
       </div>
-    </section>
+
+      <!-- Seção do Formulário de Edição -->
+      <section id="secao-editor" class="secao-editor" style="display: none;">
+        <h2>Editar Notas e Faltas</h2>
+        <p class="editor-instrucoes">Digite notas entre 0 e 10 (ou deixe em branco) e faltas como números inteiros maiores ou iguais a 0.</p>
+        <div class="tabela-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Disciplina</th>
+                <th>1º Tri (Nota)</th>
+                <th>2º Tri (Nota)</th>
+                <th>3º Tri (Nota)</th>
+                <th>1º Tri (Faltas)</th>
+                <th>2º Tri (Faltas)</th>
+                <th>3º Tri (Faltas)</th>
+              </tr>
+            </thead>
+            <tbody id="tabela-editor-corpo">
+              <!-- Linhas para edição preenchidas via JS -->
+            </tbody>
+          </table>
+        </div>
+        <div class="editor-botoes">
+          <button id="btn-salvar-dados" type="button">Salvar alterações</button>
+          <button id="btn-cancelar-edicao" type="button" class="btn-secundario">Cancelar</button>
+        </div>
+        <p id="mensagem-editor" class="mensagem-status"></p>
+      </section>
+
+      <!-- Seção de Cards de Resumo -->
+      <section class="cards-grid">
+        <div class="card">
+          <h3>Média Geral</h3>
+          <p class="card-valor" id="card-media-geral">—</p>
+        </div>
+        <div class="card">
+          <h3>Total de Faltas</h3>
+          <p class="card-valor" id="card-total-faltas">—</p>
+        </div>
+        <div class="card">
+          <h3>Disciplinas - Bom Desempenho</h3>
+          <p class="card-valor" id="card-bom-desempenho">—</p>
+        </div>
+        <div class="card">
+          <h3>Disciplinas - Atenção</h3>
+          <p class="card-valor" id="card-atencao">—</p>
+        </div>
+        <div class="card">
+          <h3>Frequência Demonstrativa</h3>
+          <p class="card-valor" id="card-frequencia">92%</p>
+          <span class="card-status">Frequência adequada</span>
+        </div>
+      </section>
+
+      <!-- Tabela de Notas e Faltas -->
+      <section class="tabela-section">
+        <h2>Notas e Frequência por Disciplina</h2>
+        <div class="tabela-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Disciplina</th>
+                <th>1º Tri</th>
+                <th>2º Tri</th>
+                <th>3º Tri</th>
+                <th>Média</th>
+                <th>Faltas</th>
+                <th>Situação</th>
+              </tr>
+            </thead>
+            <tbody id="tabela-corpo">
+              <!-- As linhas da tabela serão inseridas pelo JavaScript -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+    </div>
+
   </main>
 
   <script src="script.js"></script>
