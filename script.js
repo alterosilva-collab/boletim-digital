@@ -232,7 +232,7 @@ async function realizarLogin() {
     pinSessao = pinDigitado;
     campoPin.value = "";
 
-    // Se a API trouxe dados existentes, usar DADOS DA API > DADOS LOCAIS
+    // Se a API brought dados existentes, usar DADOS DA API > DADOS LOCAIS
     if (resultado.dados !== null && resultado.dados !== undefined) {
       normalizarDadosAPI(resultado.dados);
     }
@@ -329,7 +329,6 @@ async function salvarAlteracoes() {
   msgEditor.textContent = "";
   msgEditor.className = "mensagem-status";
 
-  // Limpa marcações de erro anteriores
   const todosInputs = document.querySelectorAll("#tabela-editor-corpo input");
   todosInputs.forEach(i => i.classList.remove("campo-invalido"));
 
@@ -400,7 +399,6 @@ async function salvarAlteracoes() {
       return;
     }
 
-    // Sucesso: atualizar vetor principal e re-renderizar
     dadosBoletim = novasDisciplinas;
     renderizarBoletim();
 
@@ -408,4 +406,44 @@ async function salvarAlteracoes() {
     msgEditor.textContent = "Dados salvos com sucesso.";
 
     setTimeout(() => {
-      document.getElementById("secao-editor").style.display =
+      document.getElementById("secao-editor").style.display = "none";
+    }, 1500);
+
+  } catch (erro) {
+    msgEditor.className = "mensagem-status erro";
+    msgEditor.textContent = "Falha de conexão ao salvar os dados. Tente novamente.";
+  }
+}
+
+// Configuração dos Eventos após carregamento do DOM
+document.addEventListener("DOMContentLoaded", () => {
+  const btnEntrar = document.getElementById("btn-entrar");
+  const campoPin = document.getElementById("campo-pin");
+  const btnAlterar = document.getElementById("btn-alterar-dados");
+  const btnSalvar = document.getElementById("btn-salvar-dados");
+  const btnCancelar = document.getElementById("btn-cancelar-edicao");
+
+  if (btnEntrar) {
+    btnEntrar.addEventListener("click", realizarLogin);
+  }
+
+  if (campoPin) {
+    campoPin.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") realizarLogin();
+    });
+  }
+
+  if (btnAlterar) {
+    btnAlterar.addEventListener("click", abrirEditor);
+  }
+
+  if (btnSalvar) {
+    btnSalvar.addEventListener("click", salvarAlteracoes);
+  }
+
+  if (btnCancelar) {
+    btnCancelar.addEventListener("click", () => {
+      document.getElementById("secao-editor").style.display = "none";
+    });
+  }
+});
