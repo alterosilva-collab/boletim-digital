@@ -92,6 +92,33 @@
         </div>
       </section>
 
+      <!-- Seção de Gráficos -->
+      <section class="area-graficos">
+        <article class="grafico-card">
+          <h2>Média por disciplina</h2>
+          <div class="grafico-container grafico-container-disciplinas">
+            <canvas id="graficoMediasDisciplinas"></canvas>
+          </div>
+        </article>
+
+        <article class="grafico-card">
+          <h2>Evolução da média geral</h2>
+          <div class="grafico-container">
+            <canvas id="graficoEvolucaoTrimestres"></canvas>
+          </div>
+        </article>
+
+        <article class="grafico-card" id="card-grafico-faltas">
+          <div class="grafico-cabecalho">
+            <h2>Faltas por trimestre</h2>
+            <span id="estadoFaltas" class="badge-perigo" style="display: none;">Perigo</span>
+          </div>
+          <div class="grafico-container">
+            <canvas id="graficoFaltasTrimestres"></canvas>
+          </div>
+        </article>
+      </section>
+
       <!-- Tabela de Notas e Faltas -->
       <section class="tabela-section">
         <h2>Notas e Frequência por Disciplina</h2>
@@ -119,6 +146,7 @@
 
   </main>
 
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
